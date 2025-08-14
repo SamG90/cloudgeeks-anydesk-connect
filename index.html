@@ -4,116 +4,136 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Cloud Geeks Remote Support</title>
-  <meta name="description" content="One-click remote support connection via AnyDesk for The Cloud Geeks.">
+  <meta name="description" content="Remote support via AnyDesk for The Cloud Geeks. This page helps clients install AnyDesk and send their ID so we can initiate the connection.">
   <style>
-    body {
-      font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f5f7fa;
-      margin: 0;
-      padding: 0;
-      color: #333;
+    :root {
+      --brand:#0d6efd;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --bg:#f5f7fa;
+      --card:#ffffff;
+      --border:#e5e7eb;
     }
-    header {
-      background: #0d6efd;
-      padding: 1rem;
-      color: white;
-      text-align: center;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #0d6efd;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.25rem;
-      font-size: 1rem;
-      font-weight: bold;
-      color: white;
-      background: #0d6efd;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      margin: 0.25rem 0;
-    }
-    .btn.secondary {
-      background: #6c757d;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      color: #777;
-    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    header { background: var(--brand); color:#fff; padding: 16px; text-align:center; }
+    header h1 { margin:0; font-size:28px; }
+    header p { margin:4px 0 0; opacity:.95; }
+    main { max-width: 900px; margin: 24px auto; padding: 16px; }
+    .card { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+    h2 { color: var(--brand); font-size: 22px; margin-top: 0; }
+    .row { display:flex; flex-wrap:wrap; gap:16px; }
+    .col { flex:1 1 280px; }
+    .btn { display:inline-block; padding:12px 16px; border-radius:10px; text-decoration:none; font-weight:600; border:1px solid var(--brand); background: var(--brand); color:#fff; cursor:pointer; }
+    .btn.secondary { background:#fff; color:var(--brand); }
+    .btn:disabled { opacity:.6; cursor:not-allowed; }
+    .muted { color: var(--muted); font-size: 14px; }
+    .input { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:16px; }
+    details { margin-top:10px; }
+    footer { text-align:center; color: var(--muted); font-size: 13px; padding: 16px; }
+    .stack { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .badge { display:inline-block; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; border-radius:999px; padding:4px 10px; font-size:12px; }
   </style>
 </head>
 <body>
   <header>
     <h1>The Cloud Geeks Remote Support</h1>
-    <p>Fast and secure remote assistance</p>
+    <p>Install AnyDesk and send us your ID so we can connect to you</p>
   </header>
-  <main>
-    <section>
-      <h2>Step 1 — Download AnyDesk</h2>
-      <p>We detected your device and selected the right download link. If this looks wrong, choose your platform manually below.</p>
-      <a id="downloadAuto" class="btn" href="https://anydesk.com/en/downloads">Download AnyDesk</a>
-      <div>
-        <details>
-          <summary>Or choose your platform</summary>
-          <p>
-            <a class="btn secondary" href="https://anydesk.com/en/downloads/windows">Windows</a>
-            <a class="btn secondary" href="https://anydesk.com/en/downloads/mac-os">macOS</a>
-            <a class="btn secondary" href="https://anydesk.com/en/downloads/linux">Linux</a>
-            <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid">Android</a>
-            <a class="btn secondary" href="https://apps.apple.com/app/anydesk-remote-desktop/id1176131273">iPhone / iPad</a>
-          </p>
-        </details>
-      </div>
-    </section>
 
-    <section>
-      <h2>Step 2 — Connect to our technician</h2>
-      <p>Once AnyDesk is installed, click the button below to start your support session.</p>
-      <a id="connect" class="btn" href="anydesk://1411035339">Connect: anydesk://1411035339</a>
-      <button id="copy" class="btn secondary" type="button">Copy ID</button>
-      <p class="note">If prompted, choose “Open AnyDesk”. Your connection will start only once we accept your request.</p>
-      <p class="note">Support ID: 1411035339 | The Cloud Geeks — Remote Support</p>
-    </section>
+  <main>
+    <div class="card">
+      <div class="row">
+        <div class="col">
+          <h2>Step 1: Install AnyDesk</h2>
+          <p>We detected your device and selected the right download. If it looks wrong, choose your platform below.</p>
+          <div class="stack" style="margin:8px 0 12px;">
+            <a id="downloadAuto" class="btn" href="https://anydesk.com/en/downloads">Download AnyDesk</a>
+            <span id="detected" class="badge">Detecting device…</span>
+          </div>
+          <details>
+            <summary>Choose a different platform</summary>
+            <div class="stack" style="margin-top:8px;">
+              <a class="btn secondary" href="https://anydesk.com/en/downloads/windows">Windows</a>
+              <a class="btn secondary" href="https://anydesk.com/en/downloads/mac-os">macOS</a>
+              <a class="btn secondary" href="https://anydesk.com/en/downloads/linux">Linux</a>
+              <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid">Android</a>
+              <a class="btn secondary" href="https://apps.apple.com/app/anydesk-remote-desktop/id1176131273">iPhone or iPad</a>
+            </div>
+          </details>
+          <p class="muted" style="margin-top:10px;">Tip: You can also click <a href="anydesk://" style="color:var(--brand);">Open AnyDesk</a> after it is installed.</p>
+        </div>
+        <div class="col">
+          <h2>Step 2: Tell us your AnyDesk ID</h2>
+          <p>Open AnyDesk and look for the number under <strong>This Desk</strong>. Enter it below and click Send. We will start the connection from our side.</p>
+          <input id="clientId" class="input" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter your 9 digit AnyDesk ID" aria-label="Your AnyDesk ID">
+          <div class="stack" style="margin-top:10px;">
+            <button id="sendBtn" class="btn" type="button">Send ID by email</button>
+            <button id="copyBtn" class="btn secondary" type="button">Copy ID</button>
+          </div>
+          <p class="muted" id="helpText" style="margin-top:8px;">We will only be able to connect once you accept the prompt. For automatic connections see the optional step below.</p>
+          <details>
+            <summary>Optional: Enable unattended access</summary>
+            <ol class="muted">
+              <li>In AnyDesk, open Settings, then Security.</li>
+              <li>Tick Enable unattended access and set a strong password.</li>
+              <li>Share your ID and the password with us through a secure channel.</li>
+              <li>You can turn this off at any time.</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </div>
   </main>
+
   <footer>
-    &copy; <span id="year"></span> The Cloud Geeks. All rights reserved.
+    &copy; <span id="year"></span> The Cloud Geeks
   </footer>
+
   <script>
+    // CONFIG: set your support email here
+    const SUPPORT_EMAIL = "support@thecloudgeeks.com"; // change to your preferred address
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const id = "1411035339";
-    const copyBtn = document.getElementById('copy');
-    const ua = navigator.userAgent || '';
-    let target = 'https://anydesk.com/en/downloads';
+    // Device detection to select the right download link
+    (function() {
+      const ua = navigator.userAgent || '';
+      const download = document.getElementById('downloadAuto');
+      const detected = document.getElementById('detected');
+      let target = 'https://anydesk.com/en/downloads';
+      let label = 'Select download';
+      if (/Windows NT/i.test(ua)) { target = 'https://anydesk.com/en/downloads/windows'; label = 'Windows detected'; }
+      else if (/Macintosh|Mac OS X/i.test(ua)) { target = 'https://anydesk.com/en/downloads/mac-os'; label = 'macOS detected'; }
+      else if (/Linux/i.test(ua)) { target = 'https://anydesk.com/en/downloads/linux'; label = 'Linux detected'; }
+      else if (/Android/i.test(ua)) { target = 'https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid'; label = 'Android detected'; }
+      else if (/iPhone|iPad|iPod/i.test(ua)) { target = 'https://apps.apple.com/app/anydesk-remote-desktop/id1176131273'; label = 'iOS detected'; }
+      download.href = target;
+      detected.textContent = label;
+    })();
 
-    if (/Windows NT/i.test(ua)) target = 'https://anydesk.com/en/downloads/windows';
-    else if (/Macintosh|Mac OS X/i.test(ua)) target = 'https://anydesk.com/en/downloads/mac-os';
-    else if (/Linux/i.test(ua)) target = 'https://anydesk.com/en/downloads/linux';
-    else if (/Android/i.test(ua)) target = 'https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid';
-    else if (/iPhone|iPad|iPod/i.test(ua)) target = 'https://apps.apple.com/app/anydesk-remote-desktop/id1176131273';
+    // Send ID by email with basic validation
+    const idInput = document.getElementById('clientId');
+    const sendBtn = document.getElementById('sendBtn');
+    const copyBtn = document.getElementById('copyBtn');
 
-    document.getElementById('downloadAuto').href = target;
+    function normaliseId(v){ return (v||'').replace(/[^0-9]/g,'').slice(0,12); }
 
-    copyBtn.addEventListener('click', function() {
-      navigator.clipboard.writeText(id).then(function() {
-        copyBtn.textContent = 'Copied!';
-        setTimeout(function() { copyBtn.textContent = 'Copy ID'; }, 1500);
+    sendBtn.addEventListener('click', function(){
+      const raw = idInput.value;
+      const id = normaliseId(raw);
+      if (!id || id.length < 6) { alert('Please enter your AnyDesk ID. It is usually 9 digits.'); return; }
+      const os = (navigator.userAgent||'');
+      const subject = encodeURIComponent('AnyDesk ID: ' + id);
+      const body = encodeURIComponent('Hi, my AnyDesk ID is ' + id + '\nOS and browser: ' + os + '\nI am ready for you to connect.');
+      window.location.href = 'mailto:' + encodeURIComponent(SUPPORT_EMAIL) + '?subject=' + subject + '&body=' + body;
+    });
+
+    copyBtn.addEventListener('click', function(){
+      const id = normaliseId(idInput.value);
+      navigator.clipboard.writeText(id || idInput.value || '').then(function(){
+        copyBtn.textContent = 'Copied';
+        setTimeout(function(){ copyBtn.textContent = 'Copy ID'; }, 1500);
       });
     });
   </script>
