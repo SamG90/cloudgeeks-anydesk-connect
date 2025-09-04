@@ -126,8 +126,9 @@
       const os = (navigator.userAgent||'');
       const subject = encodeURIComponent('AnyDesk ID: ' + id);
       const body = encodeURIComponent('Hi, my AnyDesk ID is ' + id + '\nOS and browser: ' + os + '\nI am ready for you to connect.');
-      window.location.href = 'mailto:' + encodeURIComponent(SUPPORT_EMAIL) + '?subject=' + subject + '&body=' + body;
-    });
+        // Don't encode the email address itself or the mail client may not recognise it
+        window.location.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + subject + '&body=' + body;
+      });
 
     copyBtn.addEventListener('click', function(){
       const id = normaliseId(idInput.value);
