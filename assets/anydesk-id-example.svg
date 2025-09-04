@@ -1,0 +1,8 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="0" y="0" width="400" height="40" fill="#f3f4f6" />
+  <text x="16" y="25" font-size="16" font-family="Arial, sans-serif" fill="#111827">AnyDesk</text>
+  <text x="16" y="80" font-size="18" font-family="Arial, sans-serif" fill="#111827">This Desk:</text>
+  <rect x="120" y="60" width="200" height="40" fill="#eef2ff" stroke="#6366f1" rx="4" />
+  <text x="135" y="85" font-size="20" font-family="monospace" fill="#111827">123 456 789</text>
+</svg>
