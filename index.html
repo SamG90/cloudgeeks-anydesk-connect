@@ -16,9 +16,9 @@
     }
     * { box-sizing: border-box; }
     body { margin:0; font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
-    header { background: var(--brand); color:#fff; padding: 16px; text-align:center; }
-    header h1 { margin:0; font-size:28px; }
-    header p { margin:4px 0 0; opacity:.95; }
+    header { background: linear-gradient(135deg, var(--brand), #004aad); color:#fff; padding: 24px; text-align:center; }
+    header h1 { margin:0; font-size:32px; font-weight:700; }
+    header p { margin:4px 0 0; opacity:.95; font-size:18px; }
     main { max-width: 900px; margin: 24px auto; padding: 16px; }
     .card { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
     h2 { color: var(--brand); font-size: 22px; margin-top: 0; }
@@ -65,13 +65,15 @@
         </div>
         <div class="col">
           <h2>Step 2: Tell us your AnyDesk ID</h2>
-          <p>Open AnyDesk and look for the number under <strong>This Desk</strong>. Enter it below and click Send. We will start the connection from our side.</p>
+          <p>Open AnyDesk and look for the number under <strong>This Desk</strong>. It will look similar to the screenshot below. Enter it and click Send.</p>
+          <img src="assets/anydesk-id-example.svg" alt="Example AnyDesk window showing the ID" style="width:100%;max-width:360px;margin:10px 0;border:1px solid var(--border);border-radius:8px;">
           <input id="clientId" class="input" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter your 9 digit AnyDesk ID" aria-label="Your AnyDesk ID">
           <div class="stack" style="margin-top:10px;">
             <button id="sendBtn" class="btn" type="button">Send ID by email</button>
             <button id="copyBtn" class="btn secondary" type="button">Copy ID</button>
           </div>
-          <p class="muted" id="helpText" style="margin-top:8px;">We will only be able to connect once you accept the prompt. For automatic connections see the optional step below.</p>
+          <p class="muted" id="helpText" style="margin-top:8px;">We will only be able to connect once you accept the prompt. Never share your ID with people you do not trust.</p>
+          <p class="muted" style="margin-top:4px;">For automatic connections see the optional step below.</p>
           <details>
             <summary>Optional: Enable unattended access</summary>
             <ol class="muted">
@@ -87,7 +89,8 @@
   </main>
 
   <footer>
-    &copy; <span id="year"></span> The Cloud Geeks
+    &copy; <span id="year"></span> The Cloud Geeks<br>
+    <span class="muted">We will never ask for your passwords or security codes.</span>
   </footer>
 
   <script>
